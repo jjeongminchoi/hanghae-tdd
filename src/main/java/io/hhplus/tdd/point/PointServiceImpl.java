@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class PointServiceImpl implements PointService {
 
+    private final PointValidator pointValidator;
     private final PointRepository pointRepository;
 
     @Override
@@ -24,8 +25,12 @@ public class PointServiceImpl implements PointService {
     @Override
     public UserPoint charge(long id, long amount, TransactionType transactionType) {
         UserPoint userPoint = pointRepository.selectById(id);
+
         long point = userPoint.point();
-        long editPoint = userPoint.charge(point, amount);
+        long editPoint = userPoint.addPoint(point, amount);
+
+        pointValidator.validate(point, amount, transactionType);
+
         pointRepository.insert(id, amount, transactionType, System.currentTimeMillis());
         return pointRepository.insertOrUpdate(id, editPoint);
     }
@@ -33,8 +38,12 @@ public class PointServiceImpl implements PointService {
     @Override
     public UserPoint use(long id, long amount, TransactionType transactionType) {
         UserPoint userPoint = pointRepository.selectById(id);
+
         long point = userPoint.point();
-        long editPoint = userPoint.use(point, amount);
+        long editPoint = userPoint.deductPoints(point, amount);
+
+        pointValidator.validate(point, amount, transactionType);
+
         pointRepository.insert(id, amount, transactionType, System.currentTimeMillis());
         return pointRepository.insertOrUpdate(id, editPoint);
     }
