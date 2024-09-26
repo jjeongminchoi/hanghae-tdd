@@ -1,4 +1,4 @@
-package io.hhplus.tdd.point;
+package io.hhplus.tdd;
 
 public class BizException extends RuntimeException {
     public BizException(String message) {

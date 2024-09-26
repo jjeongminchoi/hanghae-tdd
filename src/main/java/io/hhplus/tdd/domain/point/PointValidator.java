@@ -1,10 +1,12 @@
-package io.hhplus.tdd.point;
+package io.hhplus.tdd.domain.point;
 
+import io.hhplus.tdd.BizException;
+import io.hhplus.tdd.interfaces.api.point.TransactionType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import static io.hhplus.tdd.point.UserPoint.MAX_POINTS;
+import static io.hhplus.tdd.domain.point.UserPoint.MAX_POINTS;
 
 @Component
 public class PointValidator {

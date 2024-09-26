@@ -1,7 +1,8 @@
 package io.hhplus.tdd;
 
-import io.hhplus.tdd.point.*;
-import org.assertj.core.api.Assertions;
+import io.hhplus.tdd.domain.point.PointService;
+import io.hhplus.tdd.domain.point.UserPoint;
+import io.hhplus.tdd.interfaces.api.point.TransactionType;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
