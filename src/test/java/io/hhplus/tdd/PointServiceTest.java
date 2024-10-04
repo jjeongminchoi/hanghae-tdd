@@ -1,6 +1,7 @@
 package io.hhplus.tdd;
 
-import io.hhplus.tdd.point.*;
+import io.hhplus.tdd.domain.point.*;
+import io.hhplus.tdd.interfaces.api.point.TransactionType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

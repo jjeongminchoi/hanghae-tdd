@@ -1,4 +1,4 @@
-package io.hhplus.tdd.point;
+package io.hhplus.tdd.domain.point;
 
 public record UserPoint(
         long id,
@@ -11,11 +11,11 @@ public record UserPoint(
         return new UserPoint(id, 0, System.currentTimeMillis());
     }
 
-    public long addPoint(long point, long amount) {
-        return point + amount;
+    public long addPoint(long amount) {
+        return this.point + amount;
     }
 
-    public long deductPoints(long point, long amount) {
-        return point - amount;
+    public long deductPoints(long amount) {
+        return this.point - amount;
     }
 }
